@@ -1,0 +1,37 @@
+.contact-section {
+    height: 100vh;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media(max-height: 650px){
+        height: auto;
+    }
+
+    .contact-box{
+        width: 600px;
+        padding: 20px;
+        
+        @media(max-width: 620px){
+            width: 100%;
+        }
+
+        .buttons-box{
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .btn{
+                @media(max-width: 620px){
+                    margin: 10px 0;
+                }
+            }
+                    
+            @media(max-width: 620px){
+                flex-direction: column;
+            }
+        }
+    }
+}

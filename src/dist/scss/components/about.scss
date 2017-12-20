@@ -1,0 +1,16 @@
+.about-section {
+    height: 75vh;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media(max-height: 650px){
+        height: auto;
+    }
+
+    .about-box{
+        width: 600px;
+        padding: 100px 20px;
+    }
+}

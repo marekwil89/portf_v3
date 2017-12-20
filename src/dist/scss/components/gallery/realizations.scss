@@ -1,0 +1,143 @@
+.realizations-section {
+	padding: 150px 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	background: #F5F5F5;
+	overflow: hidden;
+	position: relative;
+
+	// &::after, &::before{
+	// 	content: '';
+	// 	position: absolute;
+	// 	width: 120%;
+	// 	height: 100px;
+	// 	background: #000000;
+	// }
+
+	// &::after{
+	// 	top: -50px;
+	// 	transform: rotate(-2deg);
+	// }
+
+	// &::before{
+	// 	bottom: -50px;
+	// 	transform: rotate(-2deg);
+	// }
+
+	.realizations {
+		padding: 20px;
+		margin: 30px 0;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		.project {
+			display: none;
+			width: calc(100% *(1/4) - 5px - 5px);
+			margin: 5px;
+			opacity: 0;
+			transition: 0.3s all;
+			cursor: pointer;
+			position: relative;
+			overflow: hidden;
+			border: 1px solid #c1c1c1;
+
+			@media(max-width: 768px){
+				border: 1px solid #000000;
+			}
+			&.active {
+				animation: lightSpeedIn 0.5s linear;
+				display: inline-block;
+				opacity: 1;
+			}
+			.project-detail {
+				position: absolute;
+				bottom: -140px;
+				left: 0;
+				width: 100%;
+				background: #000000;
+				transition: 0.3s all;
+
+				@media(max-width: 768px){
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+
+				h4{
+					padding: 5px 0;
+					margin: 5px 0;
+				}
+
+				p{
+					margin: 6px 0;
+					color: #F5F5F5;
+				}
+			}
+			figure {
+				width: 100%;
+				height: 400px;
+				background-size: cover;
+				background-position: center;
+
+
+				@media(max-width: 768px){
+					height: 200px;
+				}
+			}
+			&:hover{
+				.project-detail {
+					bottom: 0;
+				}
+			} 
+		}
+
+	}
+	.filter-box{
+		display: flex;
+
+		@media(max-width: 600px) {
+			flex-direction: column;
+		}
+		.btn-filter {
+			margin: 0 5px;
+
+
+			@media(max-width: 600px) {
+				margin: 5px 0;
+			}
+		}
+	}
+	
+
+}
+
+@media(max-width: 1200px) {
+	.realizations-section .realizations .project {
+		width: calc(100% *(1/2) - 5px - 5px);
+	}
+}
+@media(max-width: 700px) {
+	.realizations-section .realizations .project {
+		width: 100%;
+	}
+}
+@media(max-width: 440px) {
+	.realizations-section {
+		.filter-box .btn-filter {
+			display: block;
+		}
+		.realizations .project .project-detail {
+			bottom: 0;
+			.project-btn-link {
+				display: none;
+			}
+		}
+	}
+}

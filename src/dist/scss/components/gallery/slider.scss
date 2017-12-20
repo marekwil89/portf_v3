@@ -1,0 +1,112 @@
+.slider-section {
+	z-index: -100;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: -900px;
+	left: 1800px;
+	opacity: 0;
+	transition: 0.3s all;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&.opened {
+		animation: show forwards 0.3s;
+	}
+	.arrow {
+		cursor: pointer;
+		padding: 10px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 100;
+		transition: 0.3s all;
+		color: #42dca3;
+		&.left {
+			left: 20px;
+			border-radius: 50%;
+		}
+		&.right {
+			right: 20px;
+			border-radius: 50%;
+		}
+	}
+	.slider-close {
+		z-index: 100;
+		position: absolute;
+		top: 100px;
+		right: 30px;
+		cursor: pointer;
+		color: #42dca3;
+	}
+	.slider-box {
+		width: 90%;
+		height: 100%;
+		overflow-x: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.slide {
+			z-index: 70;
+			width: 100%;
+			display: none;
+			opacity: 0;
+			&.active {
+				animation: arrive 0.3s forwards;
+				display: block;
+				opacity: 1;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@keyframes show {
+	0% {
+		opacity: 0;
+		right: -900px;
+		background: rgba(0, 0, 0, 0.3);
+	}
+	50% {
+		right: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.6);
+	}
+	100% {
+		z-index: 999;
+		opacity: 1;
+		right: 0;
+		left: 0;
+		background: #000000;
+	}
+}
+@keyframes lightSpeedIn {
+	0% {
+		transform: translate3d(100%, 0, 0) skewX(-10deg);
+		opacity: 0;
+	}
+	60% {
+		transform: skewX(5deg);
+		opacity: 0.5;
+	}
+	80% {
+		transform: skewX(-2deg);
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+@keyframes arrive {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
